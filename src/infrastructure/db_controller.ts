@@ -52,7 +52,13 @@ export class DBController {
                 is_processed BOOLEAN NOT NULL DEFAULT FALSE
             );
         `);
-        
+        // Staging indexes
+    
+        await this.pool.query(`
+            CREATE INDEX IF NOT EXISTS idx_staging_orders_is_processed 
+            ON staging_orders (is_processed);
+        `);
+
         await this.pool.query(`
             CREATE UNIQUE INDEX IF NOT EXISTS idx_staging_prices_token_from_time 
             ON staging_prices (token_key, from_time);
@@ -106,6 +112,12 @@ export class DBController {
             );
         `);
 
+        // Silver indexes
+        await this.pool.query(`
+            CREATE INDEX IF NOT EXISTS idx_silver_orders_token_id_timestamp 
+            ON silver_orders (token_id, timestamp);
+        `);
+        
         await this.pool.query(`
             CREATE UNIQUE INDEX IF NOT EXISTS idx_silver_prices_token_from_time 
             ON silver_prices (token_id, from_time);
