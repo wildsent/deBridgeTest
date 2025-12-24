@@ -7,11 +7,11 @@
 ./src/main.ts
 
 В Environment нужно определить следующие параметры:  
-DLN_SRC_PROGRAM_ID - Program ID для DlnSource;
-DLN_DST_PROGRAM_ID - Program ID для DlnDestination;
-DATABASE_URL - URL для базы данных;
-RPC_URL - URL для RPC запросов;
-PRICE_API_KEY - API ключ, для получения информации о среднедневных ценах (Coingecko).
+DLN_SRC_PROGRAM_ID - Program ID для DlnSource;  
+DLN_DST_PROGRAM_ID - Program ID для DlnDestination;  
+DATABASE_URL - URL для базы данных;  
+RPC_URL - URL для RPC запросов;  
+PRICE_API_KEY - API ключ, для получения информации о среднедневных ценах (Coingecko).  
 
 ### Структура результирующей таблицы `gold_orders_view`
 
